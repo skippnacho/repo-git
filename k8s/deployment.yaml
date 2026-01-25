@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telco-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telco
+  template:
+    metadata:
+      labels:
+        app: telco
+    spec:
+      containers:
+      - name: telco-app
+        image: telco-app:good
+        ports:
+        - containerPort: 3000
+
