@@ -4,5 +4,6 @@ metadata:
   name: nginx-html
 data:
   index.html: |
-    <h1>Hola desde ConfigMap</h1>
-    <p>Version 2</p>
+    <h1>Hola desde ConfigMap 🚀</h1>
+    <p>Version 1</p>
+
