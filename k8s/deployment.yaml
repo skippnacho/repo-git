@@ -1,26 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: telco-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: telco
   template:
     metadata:
       labels:
-        app: nginx
+        app: telco
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: telco-app
+        image: telco-app:v2
         ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: html-volume
-          mountPath: /usr/share/nginx/html
-      volumes:
-      - name: html-volume
-        configMap:
-          name: nginx-html
+        - containerPort: 3000
+        env:
+        - name: MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MESSAGE

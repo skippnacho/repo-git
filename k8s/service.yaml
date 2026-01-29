@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: telco-svc
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: telco
   ports:
